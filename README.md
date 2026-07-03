@@ -133,6 +133,7 @@ Bancorithmics
 ## 👨‍💻 Autor
 
 **Andres Felipe Collazos Fernandez**
+&
 **Diego Fernando Mera Barrera**
 
 Proyecto académico — **Bancorithmics**.
