@@ -3,38 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bancorithmics - Commit 3</title>
+    <title>Bancorithmics - UI Completa</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-container">
-        <header class="app-header">
-            <h1 class="logo">Bancorithmics</h1>
-        </header>
+        <!-- Header con Control de Perfil -->
+        <div class="app-header">
+            <div class="logo">Bancorithmics</div>
+            <div class="profile-avatar"></div>
+        </div>
+
         <!-- Contenido principal -->
-        <main class="main-content">
-            <section class="contenedor-balance">
-                <span class="label">DISPONIBLE</span>
+        <div class="main-content">
+            <!-- Balance con ojo -->
+            <div class="balance-container">
+                <div class="label">DISPONIBLE <span class="eye-icon"></span></div>
                 <div class="amount-main">$ 1.000.000</div>
-                <span class="label">TOTAL</span>
+                <div class="label">TOTAL</div>
                 <div class="amount-sub">$ 1.500,00</div>
-            </section>
+            </div>
 
-            <section class="crud-actions">
-                <button class="btn btn-income">+ Ingresos</button>
-                <button class="btn btn-expense">- Egresos</button>
-            </section>
+            <!-- Botones de transaccion-->
+            <div class="crud-actions">
+                <div class="btn btn-income">+ Ingresos</div>
+                <div class="btn btn-expense">- Egresos</div>
+            </div>
 
-            <!-- Servicios principales-->
-            <section class="services-section">
-                <h2 class="section-title">Servicios</h2>
+            <!-- servicios -->
+            <div class="services-section">
+                <div class="section-title">Servicios</div>
                 <div class="services-grid">
-                    <button class="btn-service">COLCHÓN</button>
-                    <button class="btn-service">BOLSILLOS</button>
-                    <button class="btn-service">VISUALIZADOR</button>
+                    <div class="btn-service">COLCHON</div>
+                    <div class="btn-service">BOLSILLOS</div>
+                    <div class="btn-service">VISUALIZADOR</div>
                 </div>
-            </section>
-        </main>
+            </div>
+
+            <!-- Historial -->
+            <div class="history-section">
+                <div class="section-title">Historial Reciente (Julio 2026)</div>
+                <div class="history-card">
+                    <div class="history-item">
+                        <div class="item-left">
+                            <span class="item-icon"></span>
+                            <div>
+                                <div class="item-title">Alimentación</div>
+                                <div class="item-time">Hace 2 horas</div>
+                            </div>
+                        </div>
+                        <div class="item-amount expense">- $ 25.000</div>
+                    </div>
+                    <div class="history-item">
+                        <div class="item-left">
+                            <span class="item-icon"></span>
+                            <div>
+                                <div class="item-title">Depósito Nómina</div>
+                                <div class="item-time">Ayer</div>
+                            </div>
+                        </div>
+                        <div class="item-amount income">+ $ 1.200.000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegacion inferior -->
+        <div class="bottom-nav">
+            <a href="#" class="nav-link active">Inicio</a>
+            <a href="#" class="nav-link">Carteras</a>
+            <a href="#" class="nav-link">Reportes</a>
+        </div>
     </div>
 </body>
 </html>

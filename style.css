@@ -14,21 +14,32 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
     padding: 20px;
     box-sizing: border-box;
+    position: relative; /* Necesario para fijar el nav abajo */
 }
 
 .app-header {
     margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
     font-size: 24px;
     font-weight: 600;
     color: #ffffff;
-    margin: 0;
 }
 
-/* Contenedor de balances */
-.contenedor-balance {
+.profile-avatar {
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
+}
+
+.balance-container {
     text-align: center;
     margin-bottom: 30px;
 }
@@ -37,8 +48,13 @@ body {
     font-size: 11px;
     letter-spacing: 2px;
     color: #8a8d93;
-    display: block;
     margin-bottom: 4px;
+}
+
+.eye-icon {
+    margin-left: 5px;
+    cursor: pointer;
+    opacity: 0.7;
 }
 
 .amount-main {
@@ -51,10 +67,10 @@ body {
 .amount-sub {
     font-size: 18px;
     font-weight: 500;
-    color: #d4af37; /* Dorado Base */
+    color: #d4af37;
 }
 
-/* Botones de Acción CRUD */
+/* Botones CRUD */
 .crud-actions {
     display: flex;
     gap: 15px;
@@ -64,11 +80,12 @@ body {
 .btn {
     flex: 1;
     padding: 12px;
-    border: none;
     border-radius: 25px;
     font-size: 14px;
     font-weight: 600;
+    text-align: center;
     cursor: pointer;
+    user-select: none;
     transition: transform 0.2s, opacity 0.2s;
 }
 
@@ -86,7 +103,7 @@ body {
     color: #f87171;
 }
 
-/* Módulos de Servicios */
+/* Servicios */
 .section-title {
     font-size: 18px;
     font-weight: 500;
@@ -103,13 +120,88 @@ body {
 .btn-service {
     flex: 1;
     padding: 12px 5px;
-    border: none;
     border-radius: 20px;
     background: linear-gradient(135deg, #b78628 0%, #916c16 100%);
     color: #ffffff;
     font-size: 11px;
     font-weight: bold;
     letter-spacing: 1px;
+    text-align: center;
     cursor: pointer;
+    user-select: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Historial */
+.history-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 5px 15px;
+    margin-bottom: 80px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.history-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.item-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.item-icon {
+    font-size: 20px;
+}
+
+.item-title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.item-time {
+    font-size: 11px;
+    color: #8a8d93;
+    margin-top: 2px;
+}
+
+.item-amount {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.item-amount.expense { color: #f87171; }
+.item-amount.income { color: #a3e635; }
+
+/* Navegacion inferior */
+.bottom-nav {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0f1011;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 0;
+}
+
+.nav-link {
+    flex: 1;
+    text-align: center;
+    color: #8a8d93;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.nav-link.active {
+    color: #d4af37;
 }
