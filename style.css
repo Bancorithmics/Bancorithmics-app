@@ -54,7 +54,7 @@ body {
     color: #d4af37; /* Dorado Base */
 }
 
-/* Botones CRUD */
+/* Botones de Acción CRUD */
 .crud-actions {
     display: flex;
     gap: 15px;
@@ -84,4 +84,32 @@ body {
 .btn-expense {
     background-color: #5c2c16;
     color: #f87171;
+}
+
+/* Módulos de Servicios */
+.section-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.services-grid {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.btn-service {
+    flex: 1;
+    padding: 12px 5px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #b78628 0%, #916c16 100%);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
