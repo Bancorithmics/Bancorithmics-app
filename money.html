@@ -1,32 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="money.css">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="money.css">
+<title>Bolsillos</title>
 </head>
 <body>
-    <nav id="navbar">
-        <div><img id="logo" src="img/logo.webp" alt="Logo de Bancorithmics"></div>
 
+  <div class="app">
 
-            <ul id="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#">Dinero</a></li>
-                <li><a href="#">Gastos</a></li>
-                <li><a href="#">Ahorros</a></li>
-            </ul>
-    </nav>
+    <header class="topbar">
+      <button class="back-btn" aria-label="Volver">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <h1>Bolsillos</h1>
+      <button class="new-pocket-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+        Nuevo bolsillo
+      </button>
+    </header>
 
-    <container id="dinero">
-        <h2>saldo</h2>
-        <p id="saldo">0.00</p>
-    </container>
+    <main class="pocket-grid">
 
-    <div id="acciones">
-        <button id="agregar-dinero">Agregar dinero</button>
-        <button id="retirar-dinero">Retirar dinero</button>
-    </div>
+      <article class="pocket-card">
+        <div class="pocket-icon icon-blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 16V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"/>
+            <path d="M4 16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2"/>
+            <path d="M4 11h16"/>
+            <circle cx="7.5" cy="19" r="1.5"/>
+            <circle cx="16.5" cy="19" r="1.5"/>
+          </svg>
+        </div>
+        <div class="pocket-info">
+          <h2>Transporte</h2>
+          <p class="pocket-amount">$350.000</p>
+          <p class="pocket-total">de $500.000</p>
+        </div>
+        <div class="pocket-progress">
+          <div class="progress-track">
+            <div class="progress-fill fill-blue" style="width:70%"></div>
+          </div>
+          <span class="progress-label">70%</span>
+        </div>
+      </article>
+
+      <article class="pocket-card">
+        <div class="pocket-icon icon-green">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2v8M18 6h-4M6 2v6a2 2 0 0 0 2 2v0a2 2 0 0 0 2-2V2M8 10v12M6 2v6a2 2 0 0 0-2 2v0a2 2 0 0 0 2 2"/>
+          </svg>
+        </div>
+        <div class="pocket-info">
+          <h2>Alimentación</h2>
+          <p class="pocket-amount">$500.000</p>
+          <p class="pocket-total">de $700.000</p>
+        </div>
+        <div class="pocket-progress">
+          <div class="progress-track">
+            <div class="progress-fill fill-green" style="width:71%"></div>
+          </div>
+          <span class="progress-label">71%</span>
+        </div>
+      </article>
+
+      <article class="pocket-card">
+        <div class="pocket-icon icon-purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="6" y1="12" x2="10" y2="12"/>
+            <line x1="8" y1="10" x2="8" y2="14"/>
+            <circle cx="15" cy="13" r="1"/>
+            <circle cx="18" cy="11" r="1"/>
+            <rect x="2" y="6" width="20" height="12" rx="6"/>
+          </svg>
+        </div>
+        <div class="pocket-info">
+          <h2>Entretenimiento</h2>
+          <p class="pocket-amount">$200.000</p>
+          <p class="pocket-total">de $400.000</p>
+        </div>
+        <div class="pocket-progress">
+          <div class="progress-track">
+            <div class="progress-fill fill-purple" style="width:50%"></div>
+          </div>
+          <span class="progress-label">50%</span>
+        </div>
+      </article>
+
+      <article class="pocket-card">
+        <div class="pocket-icon icon-red">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            <path d="M2 13h20"/>
+          </svg>
+        </div>
+        <div class="pocket-info">
+          <h2>Emergencias</h2>
+          <p class="pocket-amount">$500.000</p>
+          <p class="pocket-total">de $1.000.000</p>
+        </div>
+        <div class="pocket-progress">
+          <div class="progress-track">
+            <div class="progress-fill fill-red" style="width:50%"></div>
+          </div>
+          <span class="progress-label">50%</span>
+        </div>
+      </article>
+
+      <article class="pocket-card">
+        <div class="pocket-icon icon-teal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 5c-1.5 0-2.8 1.4-3.5 3.5C14.2 8.2 13 8 11.5 8 7 8 3 10.5 3 14c0 1 .4 1.8 1 2.5V19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h5v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2.5c.9-1 1.5-2.2 1.5-3.5 0-.8-.2-1.5-.5-2.1.9-.2 1.7-.6 2.3-1.2C21 9.5 21 5 19 5z"/>
+            <circle cx="16.5" cy="12.5" r=".5" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="pocket-info">
+          <h2>Ahorros</h2>
+          <p class="pocket-amount">$900.000</p>
+          <p class="pocket-total">de $2.000.000</p>
+        </div>
+        <div class="pocket-progress">
+          <div class="progress-track">
+            <div class="progress-fill fill-teal" style="width:45%"></div>
+          </div>
+          <span class="progress-label">45%</span>
+        </div>
+      </article>
+
+    </main>
+
+  </div>
+
 </body>
 </html>
