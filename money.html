@@ -1,118 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ingresos y Egresos</title>
-<link rel="stylesheet" href="money.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bancorithmics - Ingresos y Egresos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="paginas.css">
 </head>
 <body>
+    <div class="dashboard">
+        <aside class="sidebar"></aside>
 
-  <div class="app">
+        <main class="main">
+            <header class="main-header">
+                <div class="header-title-wrapper">
+                    <a href="index.html" class="back-link">&larr; Volver</a>
+                    <div>
+                        <h1 class="page-title">ingresos y egresos</h1>
+                        <p class="page-subtitle" id="subtitulo">Todos tus movimientos</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-primary" id="btn-nuevo-movimiento">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                        Nuevo movimiento
+                    </button>
+                </div>
+            </header>
 
-    <header class="topbar">
-      <button class="back-btn" aria-label="Volver">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-      </button>
-      <h1>Ingresos y Egresos</h1>
-      <button class="new-movement-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 5v14M5 12h14"/>
-        </svg>
-        Nuevo movimiento
-      </button>
-    </header>
+            <!-- Resumen de lo que se está viendo -->
+            <section class="resumen-filtrado">
+                <div class="mini-stat">
+                    <span class="mini-stat-label">Ingresos</span>
+                    <span class="mini-stat-valor amount-positive" id="stat-ingresos">$0</span>
+                </div>
+                <div class="mini-stat">
+                    <span class="mini-stat-label">Egresos</span>
+                    <span class="mini-stat-valor amount-negative" id="stat-egresos">$0</span>
+                </div>
+                <div class="mini-stat">
+                    <span class="mini-stat-label">Balance</span>
+                    <span class="mini-stat-valor" id="stat-balance">$0</span>
+                </div>
+            </section>
 
-    <nav class="tabs">
-      <button class="tab tab-active">Todos</button>
-      <button class="tab">Ingresos</button>
-      <button class="tab">Egresos</button>
-    </nav>
+            <!-- Pestañas -->
+            <nav class="tabs" id="tabs">
+                <button class="tab tab-active" data-tipo="todos">Todos</button>
+                <button class="tab" data-tipo="ingreso">Ingresos</button>
+                <button class="tab" data-tipo="egreso">Egresos</button>
+            </nav>
 
-    <main class="table-card">
-      <table class="movements-table">
-        <thead>
-          <tr>
-            <th>Concepto</th>
-            <th>Categoría</th>
-            <th>Tipo</th>
-            <th>Monto</th>
-            <th>Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="concept">Salario</td>
-            <td><span class="tag tag-blue">Trabajo</span></td>
-            <td><span class="pill pill-income">Ingreso</span></td>
-            <td class="amount amount-positive">+$2.000.000</td>
-            <td class="date">02 May 2024</td>
-          </tr>
-          <tr>
-            <td class="concept">Supermercado</td>
-            <td><span class="tag tag-blue">Alimentación</span></td>
-            <td><span class="pill pill-expense">Egreso</span></td>
-            <td class="amount amount-negative">-$150.000</td>
-            <td class="date">03 May 2024</td>
-          </tr>
-          <tr>
-            <td class="concept">Transporte público</td>
-            <td><span class="tag tag-green">Transporte</span></td>
-            <td><span class="pill pill-expense">Egreso</span></td>
-            <td class="amount amount-negative">-$80.000</td>
-            <td class="date">03 May 2024</td>
-          </tr>
-          <tr>
-            <td class="concept">Freelance</td>
-            <td><span class="tag tag-blue">Trabajo</span></td>
-            <td><span class="pill pill-income">Ingreso</span></td>
-            <td class="amount amount-positive">+$1.200.000</td>
-            <td class="date">01 May 2024</td>
-          </tr>
-          <tr>
-            <td class="concept">Cine</td>
-            <td><span class="tag tag-purple">Entretenimiento</span></td>
-            <td><span class="pill pill-expense">Egreso</span></td>
-            <td class="amount amount-negative">-$45.000</td>
-            <td class="date">01 May 2024</td>
-          </tr>
-          <tr>
-            <td class="concept">Luz</td>
-            <td><span class="tag tag-blue">Servicios</span></td>
-            <td><span class="pill pill-expense">Egreso</span></td>
-            <td class="amount amount-negative">-$120.000</td>
-            <td class="date">30 Abr 2024</td>
-          </tr>
-          <tr>
-            <td class="concept">Venta de objeto</td>
-            <td><span class="tag tag-gray">Otros</span></td>
-            <td><span class="pill pill-income">Ingreso</span></td>
-            <td class="amount amount-positive">+$60.000</td>
-            <td class="date">30 Abr 2024</td>
-          </tr>
-        </tbody>
-      </table>
+            <!-- Filtros -->
+            <div class="barra-filtros">
+                <div class="buscador">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                    <input type="search" id="buscador" placeholder="Buscar por concepto o categoría..." aria-label="Buscar movimientos">
+                </div>
+                <select class="select-filtro" id="filtro-mes" aria-label="Filtrar por mes"></select>
+                <select class="select-filtro" id="filtro-categoria" aria-label="Filtrar por categoría"></select>
+                <button class="btn-secundario" id="btn-limpiar">Limpiar</button>
+            </div>
 
-      <div class="pagination">
-        <button class="page-arrow" aria-label="Página anterior">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 18l-6-6 6-6"/>
-          </svg>
-        </button>
-        <button class="page-num page-active">1</button>
-        <button class="page-num">2</button>
-        <button class="page-num">3</button>
-        <button class="page-arrow" aria-label="Página siguiente">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 18l6-6-6-6"/>
-          </svg>
-        </button>
-      </div>
-    </main>
+            <!-- Tabla -->
+            <section class="table-card">
+                <div class="tabla-scroll">
+                    <table class="movements-table">
+                        <thead>
+                            <tr>
+                                <th class="orden" data-campo="concepto">Concepto</th>
+                                <th>Categoría</th>
+                                <th>Tipo</th>
+                                <th class="orden" data-campo="monto">Monto</th>
+                                <th class="orden" data-campo="fecha">Fecha</th>
+                                <th><span class="oculto">Acciones</span></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpo-tabla"></tbody>
+                    </table>
+                </div>
+                <div id="sin-resultados"></div>
+                <div class="pagination" id="paginacion"></div>
+            </section>
+        </main>
+    </div>
 
-  </div>
+    <div class="toast-container" id="toast-container"></div>
 
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/form-movimiento.js"></script>
+    <script src="js/movimientos.js"></script>
 </body>
 </html>

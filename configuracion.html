@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bancorithmics - Configuración</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="paginas.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar"></aside>
+
+        <main class="main">
+            <header class="main-header">
+                <div class="header-title-wrapper">
+                    <a href="index.html" class="back-link">&larr; Volver</a>
+                    <div>
+                        <h1 class="page-title">configuración</h1>
+                        <p class="page-subtitle">Tu perfil, la apariencia y tus datos</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="config-grid">
+                <!-- Perfil -->
+                <section class="panel config-seccion">
+                    <h2>Perfil</h2>
+                    <p>Este nombre aparece en el menú lateral y en el saludo de inicio.</p>
+
+                    <div class="avatar-preview">
+                        <img alt="" id="avatar-img" hidden>
+                        <div class="avatar-letras" id="avatar-letras">?</div>
+                        <div>
+                            <strong id="preview-nombre">Mi cuenta</strong>
+                            <div class="texto-mudo" style="font-size:12px">Usuario de Bancorithmics</div>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label for="input-nombre">Nombre</label>
+                        <input type="text" class="campo-input" id="input-nombre" maxlength="40" placeholder="Tu nombre">
+                    </div>
+
+                    <div class="campo">
+                        <label for="input-avatar">Foto de perfil (URL)</label>
+                        <input type="url" class="campo-input" id="input-avatar" placeholder="https://..." maxlength="300">
+                    </div>
+
+                    <button class="btn-action btn-verde" id="btn-guardar-perfil">Guardar perfil</button>
+                </section>
+
+                <!-- Apariencia -->
+                <section class="panel config-seccion">
+                    <h2>Apariencia y moneda</h2>
+                    <p>Ajusta cómo se ve la aplicación y en qué moneda se muestran los montos.</p>
+
+                    <div class="opcion-fila">
+                        <div class="opcion-texto">
+                            <strong>Tema oscuro</strong>
+                            <span>Más cómodo para la vista con poca luz</span>
+                        </div>
+                        <button class="interruptor" id="switch-tema" role="switch" aria-checked="false" aria-label="Tema oscuro"></button>
+                    </div>
+
+                    <div class="opcion-fila">
+                        <div class="opcion-texto">
+                            <strong>Moneda</strong>
+                            <span>Cambia el símbolo y el formato de los montos</span>
+                        </div>
+                        <select class="select-filtro" id="select-moneda">
+                            <option value="COP">COP — Peso colombiano</option>
+                            <option value="MXN">MXN — Peso mexicano</option>
+                            <option value="ARS">ARS — Peso argentino</option>
+                            <option value="CLP">CLP — Peso chileno</option>
+                            <option value="PEN">PEN — Sol peruano</option>
+                            <option value="USD">USD — Dólar</option>
+                            <option value="EUR">EUR — Euro</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- Datos -->
+                <section class="panel config-seccion">
+                    <h2>Tus datos</h2>
+                    <p id="texto-almacenamiento">La información se guarda en este navegador.</p>
+
+                    <div class="opcion-fila">
+                        <div class="opcion-texto">
+                            <strong>Exportar copia de seguridad</strong>
+                            <span id="resumen-datos"></span>
+                        </div>
+                        <button class="btn-secundario" id="btn-exportar">Descargar</button>
+                    </div>
+
+                    <div class="opcion-fila">
+                        <div class="opcion-texto">
+                            <strong>Importar copia</strong>
+                            <span>Reemplaza los datos actuales con los de un archivo .json</span>
+                        </div>
+                        <button class="btn-secundario" id="btn-importar">Seleccionar</button>
+                        <input type="file" id="archivo-importar" accept="application/json,.json" hidden>
+                    </div>
+
+                    <div class="zona-peligro">
+                        <div class="opcion-fila">
+                            <div class="opcion-texto">
+                                <strong>Restablecer datos de ejemplo</strong>
+                                <span>Vuelve a los movimientos y bolsillos de demostración</span>
+                            </div>
+                            <button class="btn-secundario" id="btn-demo">Restablecer</button>
+                        </div>
+                        <div class="opcion-fila">
+                            <div class="opcion-texto">
+                                <strong>Borrar todo</strong>
+                                <span>Elimina movimientos, bolsillos y saldos. No se puede deshacer</span>
+                            </div>
+                            <button class="btn-secundario" id="btn-borrar">Borrar</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Acerca de -->
+                <section class="panel config-seccion">
+                    <h2>Acerca de Bancorithmics</h2>
+                    <p>Aplicación para gestionar recursos financieros personales: ingresos, egresos,
+                       bolsillos, colchón de emergencia y metas de ahorro.</p>
+
+                    <div class="opcion-fila">
+                        <div class="opcion-texto">
+                            <strong>Versión</strong>
+                            <span>1.0 — proyecto académico</span>
+                        </div>
+                    </div>
+                    <div class="opcion-fila">
+                        <div class="opcion-texto">
+                            <strong>Autores</strong>
+                            <span>Andres Felipe Collazos Fernandez y Diego Fernando Mera Barrera</span>
+                        </div>
+                    </div>
+                    <div class="opcion-fila">
+                        <div class="opcion-texto">
+                            <strong>Tecnologías</strong>
+                            <span>HTML, CSS y JavaScript sin librerías externas</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/configuracion.js"></script>
+</body>
+</html>

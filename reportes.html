@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bancorithmics - Reportes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="paginas.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar"></aside>
+
+        <main class="main">
+            <header class="main-header">
+                <div class="header-title-wrapper">
+                    <a href="index.html" class="back-link">&larr; Volver</a>
+                    <div>
+                        <h1 class="page-title">reportes</h1>
+                        <p class="page-subtitle">Cómo entra y sale tu dinero</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <select class="select-filtro" id="filtro-periodo" aria-label="Periodo del reporte"></select>
+                </div>
+            </header>
+
+            <!-- Cifras del periodo -->
+            <section class="summary-cards">
+                <article class="summary-card">
+                    <div class="summary-icon icon-green-light">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+                    </div>
+                    <div class="summary-data">
+                        <span class="summary-label">Ingresos</span>
+                        <span class="summary-amount" id="rep-ingresos">$0</span>
+                        <span class="summary-sub" id="rep-ingresos-sub"></span>
+                    </div>
+                </article>
+                <article class="summary-card">
+                    <div class="summary-icon icon-red">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="summary-data">
+                        <span class="summary-label">Egresos</span>
+                        <span class="summary-amount" id="rep-egresos">$0</span>
+                        <span class="summary-sub" id="rep-egresos-sub"></span>
+                    </div>
+                </article>
+                <article class="summary-card">
+                    <div class="summary-icon icon-blue">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+                    </div>
+                    <div class="summary-data">
+                        <span class="summary-label">Balance</span>
+                        <span class="summary-amount" id="rep-balance">$0</span>
+                        <span class="summary-sub" id="rep-balance-sub"></span>
+                    </div>
+                </article>
+                <article class="summary-card">
+                    <div class="summary-icon icon-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+                    </div>
+                    <div class="summary-data">
+                        <span class="summary-label">Tasa de ahorro</span>
+                        <span class="summary-amount" id="rep-tasa">0%</span>
+                        <span class="summary-sub" id="rep-tasa-sub"></span>
+                    </div>
+                </article>
+            </section>
+
+            <div class="reportes-grid">
+                <!-- Evolución mensual -->
+                <article class="panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Ingresos y egresos por mes</h2>
+                        <button class="btn-ghost" id="btn-ver-tabla" aria-pressed="false">Ver como tabla</button>
+                    </div>
+
+                    <div id="vista-grafica">
+                        <div class="grafica-barras" id="grafica-meses"></div>
+                        <div class="grafica-leyenda">
+                            <span class="leyenda-item"><i style="background:var(--c-teal)"></i>Ingresos</span>
+                            <span class="leyenda-item"><i style="background:var(--c-red)"></i>Egresos</span>
+                        </div>
+                    </div>
+
+                    <div id="vista-tabla" class="oculto"></div>
+                </article>
+
+                <!-- Distribución por categoría -->
+                <article class="panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Gastos por categoría</h2>
+                        <select class="select-filtro" id="filtro-tipo-categoria" aria-label="Tipo de movimiento">
+                            <option value="egreso">Egresos</option>
+                            <option value="ingreso">Ingresos</option>
+                        </select>
+                    </div>
+
+                    <div class="donut-wrapper">
+                        <div class="donut" id="donut">
+                            <svg viewBox="0 0 180 180" role="img" aria-labelledby="donut-desc"></svg>
+                            <div class="donut-centro">
+                                <span id="donut-etiqueta">Total</span>
+                                <b id="donut-total">$0</b>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="donut-desc" class="oculto"></p>
+
+                    <div class="lista-categorias" id="lista-categorias"></div>
+                </article>
+            </div>
+
+            <!-- Mayores gastos -->
+            <section class="panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Mayores movimientos del periodo</h2>
+                </div>
+                <div class="historial" id="mayores-movimientos"></div>
+            </section>
+        </main>
+    </div>
+
+    <div class="gr-tooltip" id="gr-tooltip"></div>
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/reportes.js"></script>
+</body>
+</html>
