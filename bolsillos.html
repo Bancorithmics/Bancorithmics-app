@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bancorithmics - Bolsillos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bolsillos.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="brand">
+                    <div class="brand-icon">
+                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="10" fill="#22C55E"/>
+                            <path d="M12 18h16a2 2 0 012 2v10a2 2 0 01-2 2H12a2 2 0 01-2-2V20a2 2 0 012-2z" fill="#fff"/>
+                            <path d="M14 18v-2a6 6 0 1112 0v2" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="28" cy="24" r="2" fill="#22C55E"/>
+                            <path d="M22 28l2-3 2 2 3-4" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-name">Bancorithmics</span>
+                        <span class="brand-tagline">controla tu dinero, construye tu futuro.</span>
+                    </div>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <a href="index.html" class="nav-item">
+                        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 10v7a1 1 0 001 1h4a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h4a1 1 0 001-1v-7a1 1 0 00-.293-.707l-7-7z"/></svg>
+                        inicio
+                    </a>
+                    <a href="#" class="nav-item">
+                        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg>
+                        Ingresos y Egresos
+                    </a>
+                    <a href="bolsillos.html" class="nav-item active">
+                        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                        bolsillo
+                    </a>
+                    <a href="#" class="nav-item">
+                        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/></svg>
+                        colchon
+                    </a>
+                    <a href="#" class="nav-item">
+                        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+                        Reportes
+                    </a>
+                    <a href="#" class="nav-item">
+                        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd"/></svg>
+                        Metas
+                    </a>
+                    <a href="#" class="nav-item">
+                        <svg class="nav-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.885.06 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+                        Configuración
+                    </a>
+                </nav>
+            </div>
+
+            <div class="sidebar-profile">
+                <img src="https://i.pravatar.cc/80?img=12" alt="Andres Felipe" class="profile-avatar">
+                <div class="profile-info">
+                    <span class="profile-name">Andres Felipe</span>
+                    <a href="#" class="profile-link">Ver perfil <span>&rsaquo;</span></a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main">
+            <header class="main-header">
+                <div class="header-title-wrapper">
+                    <a href="index.html" class="back-link">&larr; Volver</a>
+                    <h1 class="page-title">bolsillos</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-primary" id="btn-crear-bolsillo">+ Nuevo Bolsillo</button>
+                </div>
+            </header>
+
+            <!-- Summary Stats for Pockets -->
+            <section class="bolsillos-stats">
+                <div class="stat-card">
+                    <span class="stat-label">Total ahorrado en bolsillos</span>
+                    <span class="stat-amount" id="total-bolsillos">$4.353.000</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Saldo disponible actual</span>
+                    <span class="stat-amount" id="saldo-disponible-view">$1.250.000</span>
+                </div>
+            </section>
+
+            <!-- Pockets Grid -->
+            <section class="bolsillos-grid" id="bolsillos-grid">
+                <article class="bolsillo-card" onclick="openTransferModal('transporte')">
+                    <div class="bolsillo-card-header">
+                        <span class="bolsillo-title">TRANSPORTE</span>
+                    </div>
+                    <span class="bolsillo-amount">$350.000</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill fill-blue" style="width: 35%"></div>
+                    </div>
+                    <div class="bolsillo-footer">
+                        <span>Meta: $1.000.000</span>
+                        <span>35%</span>
+                    </div>
+                </article>
+
+                <article class="bolsillo-card" onclick="openTransferModal('alimentos')">
+                    <div class="bolsillo-card-header">
+                        <span class="bolsillo-title">ALIMENTOS</span>
+                    </div>
+                    <span class="bolsillo-amount">$900.000</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill fill-green" style="width: 60%"></div>
+                    </div>
+                    <div class="bolsillo-footer">
+                        <span>Meta: $1.500.000</span>
+                        <span>60%</span>
+                    </div>
+                </article>
+
+                <article class="bolsillo-card" onclick="openTransferModal('entretenimiento')">
+                    <div class="bolsillo-card-header">
+                        <span class="bolsillo-title">ENTRETENIMIENTO</span>
+                    </div>
+                    <span class="bolsillo-amount">$1.403.000</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill fill-purple" style="width: 70%"></div>
+                    </div>
+                    <div class="bolsillo-footer">
+                        <span>Meta: $2.000.000</span>
+                        <span>70%</span>
+                    </div>
+                </article>
+
+                <article class="bolsillo-card" onclick="openTransferModal('emergencias')">
+                    <div class="bolsillo-card-header">
+                        <span class="bolsillo-title">EMERGENCIAS</span>
+                    </div>
+                    <span class="bolsillo-amount">$900.000</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill fill-red" style="width: 50%"></div>
+                    </div>
+                    <div class="bolsillo-footer">
+                        <span>Meta: $1.800.000</span>
+                        <span>50%</span>
+                    </div>
+                </article>
+
+                <article class="bolsillo-card" onclick="openTransferModal('ahorros')">
+                    <div class="bolsillo-card-header">
+                        <span class="bolsillo-title">AHORROS</span>
+                    </div>
+                    <span class="bolsillo-amount">$700.000</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill fill-teal" style="width: 28%"></div>
+                    </div>
+                    <div class="bolsillo-footer">
+                        <span>Meta: $2.500.000</span>
+                        <span>28%</span>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal: Transferir o Gestionar Bolsillo -->
+    <div class="modal-overlay" id="modal-transfer" hidden>
+        <div class="modal">
+            <div class="modal-header-box">
+                <button class="modal-close" data-close-modal>&times;</button>
+                <h2 id="modal-pocket-title">Bolsillo</h2>
+                <span class="modal-pocket-amount" id="modal-pocket-balance">$0</span>
+                <span class="modal-pocket-goal" id="modal-pocket-goal">Meta: $0</span>
+            </div>
+
+            <div class="modal-tabs">
+                <button class="modal-tab active" data-tab="guardar">Guardar</button>
+                <button class="modal-tab" data-tab="sacar">Sacar</button>
+                <button class="modal-tab" data-tab="meta">Editar Meta</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="tab-panel active" id="tab-guardar">
+                    <label>¿Cuánto dinero deseas guardar?</label>
+                    <input type="number" class="modal-input" id="input-guardar" placeholder="Ej: 50000">
+                    <p class="modal-subtext">Disponible: <span id="disponible-guardar">$0</span></p>
+                    <button class="btn-action" id="btn-confirm-guardar">Guardar en bolsillo</button>
+                </div>
+
+                <div class="tab-panel" id="tab-sacar">
+                    <label>¿Cuánto dinero deseas retirar?</label>
+                    <input type="number" class="modal-input" id="input-sacar" placeholder="Ej: 20000">
+                    <p class="modal-subtext">En bolsillo: <span id="en-bolsillo-sacar">$0</span></p>
+                    <button class="btn-action" id="btn-confirm-sacar">Sacar a disponible</button>
+                </div>
+
+                <div class="tab-panel" id="tab-meta">
+                    <label>Nueva meta de ahorro</label>
+                    <input type="number" class="modal-input" id="input-meta" placeholder="Ej: 1000000">
+                    <button class="btn-action" id="btn-confirm-meta">Actualizar meta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Crear Nuevo Bolsillo -->
+    <div class="modal-overlay" id="modal-crear" hidden>
+        <div class="modal">
+            <div class="modal-header-box">
+                <button class="modal-close" data-close-modal>&times;</button>
+                <h2>Crear Nuevo Bolsillo</h2>
+            </div>
+            <div class="modal-body">
+                <label>Nombre del bolsillo</label>
+                <input type="text" class="modal-input" id="input-nombre-nuevo" placeholder="Ej: Viaje, Universidad...">
+                
+                <label>Meta de ahorro inicial (Opcional)</label>
+                <input type="number" class="modal-input" id="input-meta-nuevo" placeholder="Ej: 500000">
+
+                <button class="btn-action" id="btn-confirm-crear">Crear Bolsillo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast de notificaciones -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
