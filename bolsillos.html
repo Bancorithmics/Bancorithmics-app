@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bancorithmics - Bolsillos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="paginas.css">
+    <link rel="stylesheet" href="bolsillos.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar"></aside>
+
+        <main class="main">
+            <header class="main-header">
+                <div class="header-title-wrapper">
+                    <a href="index.html" class="back-link">&larr; Volver</a>
+                    <div>
+                        <h1 class="page-title">bolsillos</h1>
+                        <p class="page-subtitle" id="subtitulo">Organiza tu dinero por categorías</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-primary" id="btn-crear-bolsillo">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                        Nuevo bolsillo
+                    </button>
+                </div>
+            </header>
+
+            <!-- Resumen -->
+            <section class="bolsillos-stats">
+                <div class="stat-card">
+                    <span class="stat-label">Total guardado en bolsillos</span>
+                    <span class="stat-amount" id="total-bolsillos">$0</span>
+                    <span class="stat-extra" id="extra-bolsillos"></span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Saldo disponible actual</span>
+                    <span class="stat-amount" id="saldo-disponible-view">$0</span>
+                    <span class="stat-extra">Es el dinero que puedes repartir</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Avance hacia las metas</span>
+                    <span class="stat-amount" id="avance-metas">0%</span>
+                    <div class="progress-bar" style="margin-top:6px">
+                        <div class="progress-fill fill-green" id="barra-metas" style="width:0%"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bolsillos -->
+            <section class="bolsillos-grid" id="bolsillos-grid"></section>
+        </main>
+    </div>
+
+    <!-- Modal: gestionar bolsillo -->
+    <div class="modal-overlay" id="modal-transfer" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-pocket-title">
+            <div class="modal-header-box">
+                <button class="modal-close" data-close-modal aria-label="Cerrar">&times;</button>
+                <h2 id="modal-pocket-title">Bolsillo</h2>
+                <span class="modal-pocket-amount" id="modal-pocket-balance">$0</span>
+                <span class="modal-pocket-goal" id="modal-pocket-goal">Meta: $0</span>
+            </div>
+
+            <div class="modal-tabs" role="tablist">
+                <button class="modal-tab active" data-tab="guardar">Guardar</button>
+                <button class="modal-tab" data-tab="sacar">Sacar</button>
+                <button class="modal-tab" data-tab="editar">Editar</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Guardar -->
+                <div class="tab-panel active" id="tab-guardar">
+                    <div class="modal-resumen">
+                        <span>Disponible<b id="disponible-guardar">$0</b></span>
+                        <span>Falta para la meta<b id="falta-meta">$0</b></span>
+                    </div>
+                    <label for="input-guardar">¿Cuánto dinero deseas guardar?</label>
+                    <div class="campo-monto">
+                        <span class="simbolo">$</span>
+                        <input type="text" class="modal-input" id="input-guardar" placeholder="0">
+                    </div>
+                    <div class="chips-monto" id="chips-guardar"></div>
+                    <p class="mensaje-error" id="error-guardar"></p>
+                    <button class="btn-action btn-verde" id="btn-confirm-guardar">Guardar en bolsillo</button>
+                </div>
+
+                <!-- Sacar -->
+                <div class="tab-panel" id="tab-sacar">
+                    <div class="modal-resumen">
+                        <span>En el bolsillo<b id="en-bolsillo-sacar">$0</b></span>
+                        <span>Volverá a<b>Saldo disponible</b></span>
+                    </div>
+                    <label for="input-sacar">¿Cuánto dinero deseas retirar?</label>
+                    <div class="campo-monto">
+                        <span class="simbolo">$</span>
+                        <input type="text" class="modal-input" id="input-sacar" placeholder="0">
+                    </div>
+                    <div class="chips-monto" id="chips-sacar"></div>
+                    <p class="mensaje-error" id="error-sacar"></p>
+                    <button class="btn-action" id="btn-confirm-sacar">Sacar a disponible</button>
+                </div>
+
+                <!-- Editar -->
+                <div class="tab-panel" id="tab-editar">
+                    <div class="campo">
+                        <label for="input-nombre-editar">Nombre</label>
+                        <input type="text" class="modal-input" id="input-nombre-editar" maxlength="28">
+                    </div>
+                    <div class="campo">
+                        <label for="input-meta">Meta de ahorro</label>
+                        <div class="campo-monto">
+                            <span class="simbolo">$</span>
+                            <input type="text" class="modal-input" id="input-meta" placeholder="0">
+                        </div>
+                    </div>
+                    <label>Color</label>
+                    <div class="selector-visual" id="colores-editar"></div>
+                    <label>Icono</label>
+                    <div class="selector-visual" id="iconos-editar"></div>
+                    <p class="mensaje-error" id="error-editar"></p>
+                    <button class="btn-action" id="btn-confirm-meta">Guardar cambios</button>
+
+                    <div class="modal-footer">
+                        <button class="btn-ghost peligro" id="btn-eliminar-bolsillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+                            Eliminar bolsillo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: crear bolsillo -->
+    <div class="modal-overlay" id="modal-crear" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-crear">
+            <div class="modal-header-box">
+                <button class="modal-close" data-close-modal aria-label="Cerrar">&times;</button>
+                <h2 id="titulo-crear">Crear nuevo bolsillo</h2>
+            </div>
+            <div class="modal-body">
+                <div class="campo">
+                    <label for="input-nombre-nuevo">Nombre del bolsillo</label>
+                    <input type="text" class="modal-input" id="input-nombre-nuevo" placeholder="Ej: Viaje, Universidad..." maxlength="28">
+                </div>
+
+                <div class="campo-fila">
+                    <div class="campo">
+                        <label for="input-meta-nuevo">Meta (opcional)</label>
+                        <div class="campo-monto">
+                            <span class="simbolo">$</span>
+                            <input type="text" class="modal-input" id="input-meta-nuevo" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="campo">
+                        <label for="input-inicial-nuevo">Depósito inicial</label>
+                        <div class="campo-monto">
+                            <span class="simbolo">$</span>
+                            <input type="text" class="modal-input" id="input-inicial-nuevo" placeholder="0">
+                        </div>
+                    </div>
+                </div>
+
+                <p class="modal-subtext">Disponible ahora: <span id="disponible-crear">$0</span></p>
+
+                <label>Color</label>
+                <div class="selector-visual" id="colores-crear"></div>
+                <label>Icono</label>
+                <div class="selector-visual" id="iconos-crear"></div>
+
+                <p class="mensaje-error" id="error-crear"></p>
+                <button class="btn-action btn-verde" id="btn-confirm-crear">Crear bolsillo</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/bolsillos.js"></script>
+</body>
+</html>

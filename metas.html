@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bancorithmics - Metas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="paginas.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar"></aside>
+
+        <main class="main">
+            <header class="main-header">
+                <div class="header-title-wrapper">
+                    <a href="index.html" class="back-link">&larr; Volver</a>
+                    <div>
+                        <h1 class="page-title">metas</h1>
+                        <p class="page-subtitle" id="subtitulo">Tus objetivos de ahorro en un solo lugar</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <a href="bolsillos.html" class="btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                        Nueva meta
+                    </a>
+                </div>
+            </header>
+
+            <!-- Resumen global -->
+            <section class="tarjeta-destacada">
+                <div class="colchon-cabecera">
+                    <div class="colchon-icono icon-green-bg">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+                    </div>
+                    <div>
+                        <span class="summary-label">Ahorrado hacia tus metas</span>
+                        <div class="colchon-saldo" id="total-ahorrado">$0</div>
+                    </div>
+                    <div class="colchon-acciones">
+                        <div style="text-align:right">
+                            <span class="summary-label">Ritmo de ahorro mensual</span>
+                            <div class="mini-stat-valor" id="ritmo-ahorro">$0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meta-info">
+                    <span>Objetivo total: <b id="objetivo-total">$0</b></span>
+                    <span><b id="avance-global">0%</b> completado</span>
+                </div>
+                <div class="progress-bar alta">
+                    <div class="progress-fill fill-green" id="barra-global" style="width:0%"></div>
+                </div>
+
+                <div class="consejo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2z"/></svg>
+                    <div id="consejo-metas"></div>
+                </div>
+            </section>
+
+            <!-- Lista de metas -->
+            <section class="metas-lista" id="metas-lista"></section>
+        </main>
+    </div>
+
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/metas.js"></script>
+</body>
+</html>

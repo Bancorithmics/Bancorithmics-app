@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bancorithmics - Ingresos y Egresos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="paginas.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar"></aside>
+
+        <main class="main">
+            <header class="main-header">
+                <div class="header-title-wrapper">
+                    <a href="index.html" class="back-link">&larr; Volver</a>
+                    <div>
+                        <h1 class="page-title">ingresos y egresos</h1>
+                        <p class="page-subtitle" id="subtitulo">Todos tus movimientos</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-primary" id="btn-nuevo-movimiento">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                        Nuevo movimiento
+                    </button>
+                </div>
+            </header>
+
+            <!-- Resumen de lo que se está viendo -->
+            <section class="resumen-filtrado">
+                <div class="mini-stat">
+                    <span class="mini-stat-label">Ingresos</span>
+                    <span class="mini-stat-valor amount-positive" id="stat-ingresos">$0</span>
+                </div>
+                <div class="mini-stat">
+                    <span class="mini-stat-label">Egresos</span>
+                    <span class="mini-stat-valor amount-negative" id="stat-egresos">$0</span>
+                </div>
+                <div class="mini-stat">
+                    <span class="mini-stat-label">Balance</span>
+                    <span class="mini-stat-valor" id="stat-balance">$0</span>
+                </div>
+            </section>
+
+            <!-- Pestañas -->
+            <nav class="tabs" id="tabs">
+                <button class="tab tab-active" data-tipo="todos">Todos</button>
+                <button class="tab" data-tipo="ingreso">Ingresos</button>
+                <button class="tab" data-tipo="egreso">Egresos</button>
+            </nav>
+
+            <!-- Filtros -->
+            <div class="barra-filtros">
+                <div class="buscador">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                    <input type="search" id="buscador" placeholder="Buscar por concepto o categoría..." aria-label="Buscar movimientos">
+                </div>
+                <select class="select-filtro" id="filtro-mes" aria-label="Filtrar por mes"></select>
+                <select class="select-filtro" id="filtro-categoria" aria-label="Filtrar por categoría"></select>
+                <button class="btn-secundario" id="btn-limpiar">Limpiar</button>
+            </div>
+
+            <!-- Tabla -->
+            <section class="table-card">
+                <div class="tabla-scroll">
+                    <table class="movements-table">
+                        <thead>
+                            <tr>
+                                <th class="orden" data-campo="concepto">Concepto</th>
+                                <th>Categoría</th>
+                                <th>Tipo</th>
+                                <th class="orden" data-campo="monto">Monto</th>
+                                <th class="orden" data-campo="fecha">Fecha</th>
+                                <th><span class="oculto">Acciones</span></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpo-tabla"></tbody>
+                    </table>
+                </div>
+                <div id="sin-resultados"></div>
+                <div class="pagination" id="paginacion"></div>
+            </section>
+        </main>
+    </div>
+
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/form-movimiento.js"></script>
+    <script src="js/movimientos.js"></script>
+</body>
+</html>

@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bancorithmics - Inicio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="paginas.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- El menú lateral lo genera js/ui.js para mantenerlo igual en todas las páginas -->
+        <aside class="sidebar"></aside>
 
+        <!-- Main content -->
+        <main class="main">
+            <header class="main-header">
+                <div class="header-title-wrapper">
+                    <div>
+                        <h1 class="page-title">inicio</h1>
+                        <p class="page-subtitle" id="saludo">Resumen de tus finanzas</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-primary" id="btn-nuevo-movimiento">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                        Nuevo movimiento
+                    </button>
+                    <div class="avisos-wrapper">
+                        <button class="icon-btn" id="btn-avisos" aria-label="Notificaciones" aria-expanded="false">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+                            <span class="punto oculto" id="punto-avisos"></span>
+                        </button>
+                        <div class="avisos-panel" id="avisos-panel" hidden>
+                            <div class="avisos-titulo">Avisos</div>
+                            <div id="avisos-lista"></div>
+                        </div>
+                    </div>
+                    <button class="icon-btn" id="btn-tema" aria-label="Cambiar tema">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Summary cards -->
+            <section class="summary-cards">
+                <a href="money.html" class="summary-card">
+                    <div class="summary-icon icon-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M16 14h.01"/></svg>
+                    </div>
+                    <div class="summary-data">
+                        <span class="summary-label">Saldo disponible</span>
+                        <span class="summary-amount" id="dato-disponible">$0</span>
+                        <span class="summary-sub" id="sub-disponible">Disponible para usar</span>
+                    </div>
+                </a>
+
+                <a href="colchon.html" class="summary-card">
+                    <div class="summary-icon icon-blue">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M7 8V6a5 5 0 0110 0v2"/></svg>
+                    </div>
+                    <div class="summary-data">
+                        <span class="summary-label">Colchón</span>
+                        <span class="summary-amount" id="dato-colchon">$0</span>
+                        <span class="summary-sub" id="sub-colchon">Fondo de emergencia</span>
+                    </div>
+                </a>
+
+                <a href="money.html?tipo=ingreso" class="summary-card">
+                    <div class="summary-icon icon-green-light">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+                    </div>
+                    <div class="summary-data">
+                        <span class="summary-label">Ingresos este mes</span>
+                        <span class="summary-amount" id="dato-ingresos">$0</span>
+                        <span class="summary-sub" id="sub-ingresos">Total ingresos</span>
+                    </div>
+                </a>
+
+                <a href="money.html?tipo=egreso" class="summary-card">
+                    <div class="summary-icon icon-red">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="summary-data">
+                        <span class="summary-label">Egresos este mes</span>
+                        <span class="summary-amount" id="dato-egresos">$0</span>
+                        <span class="summary-sub" id="sub-egresos">Total egresos</span>
+                    </div>
+                </a>
+            </section>
+
+            <!-- Barra de patrimonio -->
+            <section class="panel panel-patrimonio">
+                <div class="patrimonio-cabecera">
+                    <div>
+                        <span class="summary-label">Patrimonio total</span>
+                        <div class="patrimonio-total" id="dato-patrimonio">$0</div>
+                    </div>
+                    <div class="patrimonio-leyenda" id="patrimonio-leyenda"></div>
+                </div>
+                <div class="patrimonio-barra" id="patrimonio-barra"></div>
+            </section>
+
+            <!-- Bottom panels -->
+            <section class="panels">
+                <article class="panel panel-movements">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Movimientos recientes</h2>
+                        <a href="money.html" class="panel-link">ver todo</a>
+                    </div>
+                    <div class="movement-list" id="lista-movimientos"></div>
+                </article>
+
+                <article class="panel panel-pockets">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Bolsillos</h2>
+                        <a href="bolsillos.html" class="panel-link">ver todo</a>
+                    </div>
+                    <div class="pocket-list" id="lista-bolsillos"></div>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="js/store.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/form-movimiento.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
