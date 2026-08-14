@@ -254,6 +254,80 @@
         $('donut').addEventListener('mouseleave', ocultar);
     }
 
+    /* ---------- Informe en Excel ---------- */
+
+    function construirInformeExcel() {
+        var resumen = resumenPeriodo();
+        var clave = clavePeriodo();
+        var tasa = resumen.ingresos > 0 ? Math.round((resumen.balance / resumen.ingresos) * 100) : 0;
+
+        var hojaResumen = {
+            nombre: 'Resumen',
+            encabezados: ['Concepto', 'Valor'],
+            anchos: [26, 20],
+            filas: [
+                ['Periodo', clave === 'todos' ? 'Todo el historial' : Bank.nombreMes(clave)],
+                ['Ingresos', resumen.ingresos],
+                ['Egresos', resumen.egresos],
+                ['Balance', resumen.balance],
+                ['Tasa de ahorro (%)', tasa]
+            ]
+        };
+
+        var hojaMovimientos = {
+            nombre: 'Movimientos',
+            encabezados: ['Fecha', 'Concepto', 'Categoría', 'Tipo', 'Cuenta', 'Monto'],
+            anchos: [12, 30, 18, 10, 24, 14],
+            filas: movimientosDelPeriodo().slice().sort(function (a, b) {
+                return a.fecha < b.fecha ? -1 : (a.fecha > b.fecha ? 1 : 0);
+            }).map(function (mov) {
+                var categoria = Store.sel.categoria(mov.tipo, mov.categoria);
+                return [
+                    mov.fecha,
+                    mov.concepto,
+                    categoria.nombre,
+                    mov.tipo === 'ingreso' ? 'Ingreso' : 'Egreso',
+                    Store.sel.nombreCuenta(mov.cuenta),
+                    mov.monto
+                ];
+            })
+        };
+
+        var filasCategorias = [];
+        ['ingreso', 'egreso'].forEach(function (tipo) {
+            Store.sel.porCategoria(tipo, clave).forEach(function (cat) {
+                filasCategorias.push([tipo === 'ingreso' ? 'Ingreso' : 'Egreso', cat.nombre, cat.total]);
+            });
+        });
+        var hojaCategorias = {
+            nombre: 'Por categoría',
+            encabezados: ['Tipo', 'Categoría', 'Total'],
+            anchos: [10, 22, 14],
+            filas: filasCategorias
+        };
+
+        var hojaEvolucion = {
+            nombre: 'Evolución mensual',
+            encabezados: ['Mes', 'Ingresos', 'Egresos', 'Balance'],
+            anchos: [16, 14, 14, 14],
+            filas: Store.sel.serieMensual(6).map(function (mes) {
+                return [Bank.nombreMes(mes.clave), mes.ingresos, mes.egresos, mes.balance];
+            })
+        };
+
+        return [hojaResumen, hojaMovimientos, hojaCategorias, hojaEvolucion];
+    }
+
+    function descargarInformeExcel() {
+        try {
+            var nombreArchivo = 'bancorithmics-informe-' + clavePeriodo() + '-' + Bank.hoyISO() + '.xlsx';
+            BankXLSX.descargar(nombreArchivo, construirInformeExcel());
+            Bank.toast('Informe descargado en Excel.', 'exito');
+        } catch (e) {
+            Bank.toast('No se pudo generar el informe: ' + e.message, 'error');
+        }
+    }
+
     /* ---------- Filtros ---------- */
 
     function pintarFiltroPeriodo() {
@@ -289,6 +363,8 @@
             this.textContent = verTabla ? 'Ver como gráfica' : 'Ver como tabla';
             this.setAttribute('aria-pressed', verTabla ? 'true' : 'false');
         });
+
+        $('btn-descargar-excel').addEventListener('click', descargarInformeExcel);
 
         prepararTooltips();
     }
